@@ -13,7 +13,11 @@ def Game():
     attempts = 1
 
     guess = input("Please enter your first guess: ")
-    guess = int(guess)
+    # adding digit verification so it doesn't break program if letters are used.
+    if guess.isdigit():
+        guess = int(guess)
+    else:
+        print("Please type a number: ")
 
     while guess != random_number:
         attempts += 1
