@@ -18,21 +18,23 @@ def computer_throw():
     return random_hand, random_number
 
 def user_input():
-    while True:
-        print()
+    user_input = input("Enter your choice: ")
+
+    while user_input != "rock" and user_input != "paper" and user_input != "scissors":
+        print("Please enter either 'Rock', 'Paper', or 'Scissors'")
         user_input = input("Enter your choice: ")
-        if user_input.lower() == "rock":
-            user_input_digit = 1
-            break
-        elif user_input.lower() == "paper":
-            user_input_digit = 2
-            break
-        elif user_input.lower() == "scissors":
-            user_input_digit = 3
-            break
-        else:
-            print("Please enter either 'Rock', 'Paper', or 'Scissors'")
-            continue
+        
+        
+    if user_input.lower() == "rock":
+        user_input_digit = 1
+            
+    elif user_input.lower() == "paper":
+        user_input_digit = 2
+            
+    elif user_input.lower() == "scissors":
+        user_input_digit = 3
+            
+        
     return user_input_digit, user_input
 
 def offense():
@@ -127,10 +129,11 @@ def display_score(Wins, Rounds):
 def run():
     wins = 0
     rounds = 0
+    keep_playing = ""
     print("Welcome to MUK JJI PPA, a korean version of Rock, Paper, Scissors.")
     print("Ready to play? ")
 
-    while True:
+    while keep_playing != "no":
         
         wins += muk_jji_bba()
 
@@ -141,8 +144,9 @@ def run():
         print()
         play_again = input("Would you like to play again? ")
         if play_again.lower() == "no":
+            keep_playing = "no"
             print("Thanks for playing. ")
-            break
+            
 
 
 run()
